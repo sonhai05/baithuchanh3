@@ -1,13 +1,13 @@
 function ensureFiniteNumber(value, name) {
   if (typeof value !== "number" || Number.isNaN(value) || !Number.isFinite(value)) {
-    throw new TypeError(`${name} must be a finite number`);
+    throw new TypeError(`${name} phai la so huu han`);
   }
 }
 
 function ensureInteger(value, name) {
   ensureFiniteNumber(value, name);
   if (!Number.isInteger(value)) {
-    throw new TypeError(`${name} must be an integer`);
+    throw new TypeError(`${name} phai la so nguyen`);
   }
 }
 
@@ -15,7 +15,7 @@ function rectanglePerimeter(a, b) {
   ensureFiniteNumber(a, "a");
   ensureFiniteNumber(b, "b");
   if (a <= 0 || b <= 0) {
-    throw new RangeError("a and b must be > 0");
+    throw new RangeError("a va b phai > 0");
   }
   return 2 * (a + b);
 }
@@ -24,7 +24,7 @@ function rectangleArea(a, b) {
   ensureFiniteNumber(a, "a");
   ensureFiniteNumber(b, "b");
   if (a <= 0 || b <= 0) {
-    throw new RangeError("a and b must be > 0");
+    throw new RangeError("a va b phai > 0");
   }
   return a * b;
 }
@@ -39,11 +39,11 @@ function solveQuadratic(a, b, c) {
   if (Math.abs(a) < EPS) {
     if (Math.abs(b) < EPS) {
       if (Math.abs(c) < EPS) {
-        return { type: "infinite_solutions" };
+        return { type: "vo_so_nghiem" };
       }
-      return { type: "no_solution" };
+      return { type: "vo_nghiem" };
     }
-    return { type: "linear", x: -c / b };
+    return { type: "bac_1", x: -c / b };
   }
 
   const delta = b * b - 4 * a * c;
@@ -52,14 +52,14 @@ function solveQuadratic(a, b, c) {
     const sqrtDelta = Math.sqrt(delta);
     const x1 = (-b + sqrtDelta) / (2 * a);
     const x2 = (-b - sqrtDelta) / (2 * a);
-    return { type: "two_distinct_roots", x1, x2, delta };
+    return { type: "hai_nghiem_phan_biet", x1, x2, delta };
   }
 
   if (Math.abs(delta) <= EPS) {
-    return { type: "double_root", x: -b / (2 * a), delta: 0 };
+    return { type: "nghiem_kep", x: -b / (2 * a), delta: 0 };
   }
 
-  return { type: "no_real_root", delta };
+  return { type: "vo_nghiem_thuc", delta };
 }
 
 function isLeapYear(year) {
@@ -71,10 +71,10 @@ function daysInMonth(month, year) {
   ensureInteger(year, "year");
 
   if (month < 1 || month > 12) {
-    throw new RangeError("month must be in [1, 12]");
+    throw new RangeError("thang phai trong [1, 12]");
   }
   if (year <= 0) {
-    throw new RangeError("year must be > 0");
+    throw new RangeError("nam phai > 0");
   }
 
   const month31 = [1, 3, 5, 7, 8, 10, 12];
@@ -113,7 +113,7 @@ function isPrime(n) {
 function alternatingSum(n) {
   ensureInteger(n, "n");
   if (n < 1) {
-    throw new RangeError("n must be >= 1");
+    throw new RangeError("n phai >= 1");
   }
 
   return n % 2 === 0 ? -(n / 2) : (n + 1) / 2;
@@ -124,7 +124,7 @@ function gcd(a, b) {
   ensureInteger(b, "b");
 
   if (a === 0 && b === 0) {
-    throw new RangeError("gcd is undefined for a = 0 and b = 0");
+    throw new RangeError("khong xac dinh ucln khi a = 0 va b = 0");
   }
 
   let x = Math.abs(a);
@@ -142,7 +142,7 @@ function gcd(a, b) {
 function factorialSum(n) {
   ensureInteger(n, "n");
   if (n < 1 || n > 20) {
-    throw new RangeError("n must be in [1, 20]");
+    throw new RangeError("n phai trong [1, 20]");
   }
 
   let sum = 0n;

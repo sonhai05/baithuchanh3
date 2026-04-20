@@ -6,9 +6,9 @@
 npm test
 ```
 
-## Summary
+## Tong ket
 
-- Trạng thái: PASSED
+- Trạng thái: DAT
 - Tổng số test: 16
 - Đạt: 16
 - Trượt: 0

@@ -1,15 +1,15 @@
 {
   "name": "blackbox-practice-03",
   "version": "1.0.0",
-  "description": "Black-box testing practice with 8 functions and Node.js tests",
+  "description": "Bai thuc hanh kiem thu hop den voi 8 ham va bo test Node.js",
   "main": "src/blackboxPractice.js",
   "scripts": {
     "test": "node --test"
   },
   "keywords": [
-    "blackbox-testing",
+    "kiem-thu-hop-den",
     "nodejs",
-    "practice"
+    "bai-thuc-hanh"
   ],
   "author": "",
   "license": "MIT"
