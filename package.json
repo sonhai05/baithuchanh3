@@ -1,0 +1,16 @@
+{
+  "name": "blackbox-practice-03",
+  "version": "1.0.0",
+  "description": "Black-box testing practice with 8 functions and Node.js tests",
+  "main": "src/blackboxPractice.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "blackbox-testing",
+    "nodejs",
+    "practice"
+  ],
+  "author": "",
+  "license": "MIT"
+}
